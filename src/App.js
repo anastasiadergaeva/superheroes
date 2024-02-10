@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import Card from './components/Card'
 import './App.css';
+import heroes from './heroes.json'
 
-function App() {
+export default function App() {
+  const cardItem = heroes.map(hero =>
+    <Card
+      name={hero.name}
+      universe={hero.universe}
+      alterego={hero.alterego}
+      occupation={hero.occupation}
+      friends={hero.friends}
+      superpowers={hero.superpowers}
+      url={hero.url}
+    />);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className='App'>{cardItem}</div>
   );
 }
-
-export default App;
